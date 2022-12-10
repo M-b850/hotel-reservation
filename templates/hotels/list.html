@@ -1,0 +1,22 @@
+{% extends 'shared/main.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'hotels/list.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% for h in hotels %}
+  <div class="card">
+    <img 
+    src="{{ MEDIA_URL }}{{h.image}}"
+    alt="{{h.name}}" 
+    style="width:250px; height: 250px;"
+    >
+    <h1>{{h.name}}</h1>
+    <p class="price">${{h.price}}</p>
+    <p>S{{h.description}}</p>
+    <a href="/reservation/book/{{h.id}}/"><button>Reserve</button></a>
+  </div>
+{% endfor %}
+{% endblock %}

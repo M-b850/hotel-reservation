@@ -1,3 +1,4 @@
 from django.urls import path
+from hotels.views import *
 
-urlpatterns = []
+urlpatterns = [path("", Index.as_view())]

@@ -1,0 +1,42 @@
+{% extends 'shared/main.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'reservation/main.css' %}"" />
+{% endblock %}
+
+{% block content %}
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <form action="/reservation/checkout/" method="GET">
+      <input type="hidden" name="hotel" id="hotel" value="{{id}}" />
+
+      <div class="formbold-mb-5">
+        <label for="guest" class="formbold-form-label">
+          How many guest are you bringing?
+        </label>
+        <input type="number" name="guest" id="guest" placeholder="1" class="formbold-form-input" />
+      </div>
+
+      <div class="flex flex-wrap formbold--mx-3">
+        <div class="w-full sm:w-half formbold-px-3">
+          <div class="formbold-mb-5 w-full">
+            <label for="date" class="formbold-form-label"> From Date </label>
+            <input type="date" name="fdate" id="fdate" class="formbold-form-input" />
+          </div>
+        </div>
+        <div class="w-full sm:w-half formbold-px-3">
+           <div class="formbold-mb-5 w-full">
+            <label for="date" class="formbold-form-label"> To Date </label>
+            <input type="date" name="tdate" id="tdate" class="formbold-form-input" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="formbold-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

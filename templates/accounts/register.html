@@ -1,0 +1,80 @@
+{% extends 'shared/main.html' %}
+
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'form.css' %}"" />
+{% endblock %}
+
+
+{% block content %} 
+
+{% load crispy_forms_tags %}         
+
+
+<div class="container">
+    <h1 class="page-title">
+    Register
+    </h1>
+    {% if register_form.has_error %}
+        <div class="error-input">
+            {% for r in register_form.error_messages %}
+                <p class="error-noti">{{ r }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="POST" class="login-form form">
+        {% csrf_token %}
+        <input
+            autofocus
+            required 
+            type="text"
+            maxlength="150"
+            name="username" 
+            autocomplete="username" 
+            autocapitalize="none"
+            id="id_username" 
+            class="input" 
+            placeholder="Username"
+        >
+        <input
+            autofocus
+            required 
+            type="email"
+            maxlength="150"
+            name="email" 
+            autocomplete="email" 
+            autocapitalize="none"
+            id="id_email" 
+            class="input" 
+            placeholder="Email"
+        >
+        <input
+            type="password"
+            name="password1" 
+            autocomplete="new-password" 
+            required 
+            id="id_password1" 
+            class="input" 
+            placeholder="Password"
+        >
+        <input
+            type="password"
+            name="password2" 
+            autocomplete="new-password" 
+            required 
+            id="id_password2" 
+            class="input" 
+            placeholder="Password Confirmation"
+        >
+        <input class="send-btn btn" type="submit" value="Submit">
+        <div class="form-link-holder">
+        Have an account?
+        <a href="/accounts/login/">Login</a>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'shared/main.html' %}
+
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'reservation/flow.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+    <ul class="task-items">
+        {% for r in res %}
+            <li class="item type1">
+            <div class="task">
+                <img src="{% static 'icons/hotel.png' %}" width="25" height="25"/>
+                <div style="padding-left: 2%; font-weight: bold;">Hotel</div>
+                <div class="name" style="width: 150px">{{r.hotel.name}}</div>
+            </div>
+
+            <div class="status">
+                <div class="icon off"></div>
+                <div class="text">Reserved</div>
+            </div>
+
+
+
+            <div class="dates">
+                <div class="bar">$ {{r.payed}}</div>
+            </div>
+            
+            <div class="dates">
+                <div class="bar">{{r.start_date}}</div>
+            </div>
+
+            <div class="priority">
+                <div class="bar">{{r.end_date}}</div>
+            </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

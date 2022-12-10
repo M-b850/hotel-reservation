@@ -1,0 +1,58 @@
+{% extends 'shared/main.html' %}
+
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'form.css' %}"" />
+{% endblock %}
+
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <h1 class="page-title">
+    Login
+  </h1>
+  {% if login_form.has_error %}
+      <div class="error-input">
+          {% for r in login_form.error_messages %}
+              <p class="error-noti">{{ r }}</p>
+          {% endfor %}
+      </div>
+  {% endif %}
+  <form method="POST" class="login-form form">
+    {% csrf_token %}
+    <input
+      autofocus
+      type="text"
+      maxlength="150"
+      name="username" 
+      autocomplete="username" 
+      autocapitalize="none"
+      required 
+      id="id_username" 
+      class="input" 
+      placeholder="Username"
+    >
+    <input
+      type="password"
+      name="password" 
+      autocomplete="current-password" 
+      required 
+      id="id_password" 
+      class="input" 
+      placeholder="Password"
+    >
+    <input class="send-btn btn" type="submit" value="Submit">
+
+    <div class="form-link-holder">
+      Don't you have an account?
+      <a href="/accounts/register/">Signup</a>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

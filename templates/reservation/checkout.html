@@ -1,0 +1,35 @@
+{% extends 'shared/main.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'reservation/main.css' %}"" />
+{% endblock %}
+
+{% block content %}
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+  <div class="formbold-mb-5 rounded border">
+    <h4 style="color: blue; margin-bottom: 5mm; font-size: large">Checkout</h4>
+    <div class="flex" style="margin-bottom: 10mm;">
+        <h5>From Date: </h5><br>
+        {{fromDate}}
+        <h5>To Date: </h5><br>
+        {{toDate}}
+      </tr>
+    </div>
+    <div class="flex">
+      <p style="color: grey">Total Price: </p>
+      {{price}}
+    </div>
+    <div class="flex" style="margin-top: 2mm; margin-bottom: 7mm;">
+      <p style="color: grey">Days: </p>
+      {{days}}
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <button class="formbold-btn">Accept</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
