@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'reservation/main.css' %}"" />
+  <link rel="stylesheet" href="{% static 'reservation/main.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -39,4 +39,9 @@
     </form>
   </div>
 </div>
+
+<script>
+  const today = new Date()
+  document.getElementById('fdate').valueAsDate = today;
+</script>
 {% endblock %}

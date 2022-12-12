@@ -13,17 +13,16 @@
         {% for r in res %}
             <li class="item type1">
             <div class="task">
-                <img src="{% static 'icons/hotel.png' %}" width="25" height="25"/>
+
+                    <a href="/reservation/remove/{{r.id}}/"><img src="{% static 'icons/delete.png' %}" width="30" height="30"/></a>
                 <div style="padding-left: 2%; font-weight: bold;">Hotel</div>
-                <div class="name" style="width: 150px">{{r.hotel.name}}</div>
+                <div class="name" style="width: 150px; height: auto;">{{r.hotel.name}}</div>
             </div>
 
             <div class="status">
                 <div class="icon off"></div>
                 <div class="text">Reserved</div>
             </div>
-
-
 
             <div class="dates">
                 <div class="bar">$ {{r.payed}}</div>

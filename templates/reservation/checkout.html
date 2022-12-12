@@ -10,19 +10,23 @@
   <div class="formbold-form-wrapper">
   <div class="formbold-mb-5 rounded border">
     <h4 style="color: blue; margin-bottom: 5mm; font-size: large">Checkout</h4>
+    <div class="flex" style="margin-bottom: 5mm;">
+        <h5 style="color: darkblue;">Hotel:</h5><br>
+        {{hotel.name}}
+
+    </div>
     <div class="flex" style="margin-bottom: 10mm;">
-        <h5>From Date: </h5><br>
+        <h5 style="color: darkblue;">From Date: </h5><br>
         {{fromDate}}
-        <h5>To Date: </h5><br>
+        <h5 style="color: darkblue;">To Date: </h5><br>
         {{toDate}}
-      </tr>
     </div>
     <div class="flex">
-      <p style="color: grey">Total Price: </p>
+      <p style="color: grey; padding-right: 2%;">Total Price: </p>
       {{price}}
     </div>
     <div class="flex" style="margin-top: 2mm; margin-bottom: 7mm;">
-      <p style="color: grey">Days: </p>
+      <p style="color: grey; padding-right: 2%;">Days: </p>
       {{days}}
     </div>
     <form method="post">

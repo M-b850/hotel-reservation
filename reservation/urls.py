@@ -4,5 +4,6 @@ from reservation.views import *
 urlpatterns = [
     path("book/<id>/", book, name="book"),
     path("checkout/", checkout, name="book"),
-    path("control-flow/", controlFlow, name="control_flow")
+    path("control-flow/", controlFlow, name="control_flow"),
+    path("remove/<id>/", removeReserve, name="remove")
 ]

@@ -30,7 +30,7 @@ def checkout(request):
         request,
         template_name="reservation/checkout.html",
         context={
-            "hotel": hotel.id,
+            "hotel": hotel,
             "fromDate": fromDate,
             "toDate": toDate,
             "days": total_days.days,
@@ -47,3 +47,9 @@ def controlFlow(request):
         template_name="reservation\control_flow.html",
         context={"res": reservations},
     )
+
+
+def removeReserve(request, id):
+    Reservation.objects.get(id=id).delete()
+    print(id)
+    return redirect("/reservation/control-flow/")
